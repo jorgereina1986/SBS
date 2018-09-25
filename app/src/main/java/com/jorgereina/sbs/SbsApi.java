@@ -1,5 +1,7 @@
 package com.jorgereina.sbs;
 
+import com.jorgereina.sbs.model.SbsResponse;
+
 import retrofit2.Call;
 import retrofit2.http.GET;
 

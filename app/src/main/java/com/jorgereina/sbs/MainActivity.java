@@ -2,12 +2,13 @@ package com.jorgereina.sbs;
 
 import android.graphics.Color;
 import android.support.constraint.ConstraintLayout;
-import android.support.design.widget.CoordinatorLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+
+import com.jorgereina.sbs.model.SbsResponse;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -22,7 +23,6 @@ public class MainActivity extends AppCompatActivity {
     private static final int ELEMENT_AT_POSITION_SIX = 6;
     private Button requestBtn;
     private ConstraintLayout constraintLayout;
-    private String color;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Retrofit retrofit =new  Retrofit.Builder()
+                Retrofit retrofit = new Retrofit.Builder()
                         .baseUrl(BASE_URL)
                         .addConverterFactory(GsonConverterFactory.create())
                         .build();
@@ -46,10 +46,11 @@ public class MainActivity extends AppCompatActivity {
                 call.enqueue(new Callback<SbsResponse>() {
                     @Override
                     public void onResponse(Call<SbsResponse> call, Response<SbsResponse> response) {
-                        Log.d(TAG, "onResponse: " + response.body().getDataList());
+                        Log.d(TAG, "onResponse: " + response.body().getDataList().get(ELEMENT_AT_POSITION_SIX).getTitle());
                         //getting color at position 6
-                            color = response.body().getDataList().get(ELEMENT_AT_POSITION_SIX).getColor();
-                            constraintLayout.setBackgroundColor(Color.parseColor(color));
+                        String color = response.body().getDataList().get(ELEMENT_AT_POSITION_SIX).getColor();
+                        constraintLayout.setBackgroundColor(Color.parseColor(color));
+                        requestBtn.setText(response.body().getDataList().get(ELEMENT_AT_POSITION_SIX).getTitle());
                     }
 
                     @Override
@@ -60,7 +61,5 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
-
     }
 }

@@ -1,4 +1,4 @@
-package com.jorgereina.sbs;
+package com.jorgereina.sbs.model;
 
 public class Data {
 
