@@ -1,4 +1,4 @@
-package com.jorgereina.sbs.color;
+package com.jorgereina.sbs.color.ui;
 
 import android.graphics.Color;
 import android.support.constraint.ConstraintLayout;
@@ -10,6 +10,8 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.jorgereina.sbs.R;
+import com.jorgereina.sbs.color.presenter.ColorContract;
+import com.jorgereina.sbs.color.presenter.ColorPresenter;
 
 public class ColorActivity extends AppCompatActivity implements ColorContract.ColorView {
 

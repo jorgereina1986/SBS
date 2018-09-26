@@ -1,9 +1,9 @@
-package com.jorgereina.sbs.color;
+package com.jorgereina.sbs.color.presenter;
 
 import android.util.Log;
 
 import com.jorgereina.sbs.BasePresenter;
-import com.jorgereina.sbs.network.SbsApi;
+import com.jorgereina.sbs.color.network.SbsApi;
 import com.jorgereina.sbs.model.SbsResponse;
 
 import retrofit2.Call;
@@ -13,7 +13,6 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ColorPresenter extends BasePresenter<ColorContract.ColorView> implements ColorContract.Presenter {
-
     private static final String BASE_URL = "http://api.lamusica.com/";
     private static final String TAG = "LAGARTO";
     private static final int ELEMENT_AT_POSITION_SIX = 6;
@@ -42,7 +41,6 @@ public class ColorPresenter extends BasePresenter<ColorContract.ColorView> imple
                 String title = response.body().getDataList().get(ELEMENT_AT_POSITION_SIX).getTitle();
                 view.showColorRequest(color);
                 view.showText(title);
-
             }
 
             @Override

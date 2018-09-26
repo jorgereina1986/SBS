@@ -1,4 +1,4 @@
-package com.jorgereina.sbs.network;
+package com.jorgereina.sbs.color.network;
 
 import com.jorgereina.sbs.model.SbsResponse;
 

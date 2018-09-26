@@ -5,7 +5,7 @@
     android:id="@+id/main_view_cl"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".color.ColorActivity">
+    tools:context=".color.ui.ColorActivity">
 
     <Button
         android:id="@+id/request_btn"

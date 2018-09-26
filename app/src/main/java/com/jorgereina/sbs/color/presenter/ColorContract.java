@@ -1,8 +1,8 @@
-package com.jorgereina.sbs.color;
+package com.jorgereina.sbs.color.presenter;
 
 import com.jorgereina.sbs.BaseView;
 
-public class ColorContract {
+public interface ColorContract {
 
     interface Presenter {
 
